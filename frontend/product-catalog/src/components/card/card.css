@@ -18,3 +18,14 @@
     width: 100%;
    
  }
+
+ .card a{
+    background-color: rgb(255, 196, 147);
+    color: black;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 5px;
+    text-decoration: none;
+    border-radius: 8px;
+    width: 50%;
+ }

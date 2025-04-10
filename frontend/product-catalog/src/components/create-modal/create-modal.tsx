@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useProductUpdateData } from "../../hooks/useProductUpdateData";
 import { ProductData } from "../../interfaces/ProductData";
 import "./modal.css"
@@ -7,6 +7,10 @@ interface InputProps{
     value: string,
     updateValue:(value: any) => void
 
+}
+
+interface ModalProps{
+    closeModal: () => void
 }
 
 const Input = ({label, value, updateValue}: InputProps) => {
@@ -21,11 +25,11 @@ const Input = ({label, value, updateValue}: InputProps) => {
 
 
 
-export function CreateModal(){
+export function CreateModal({closeModal}: ModalProps){
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [image, setImage] = useState("")
-    const {mutate} = useProductUpdateData();
+    const {mutate, isSuccess} = useProductUpdateData();
 
 const submit = ()=>{
     const productData: ProductData ={
@@ -37,14 +41,19 @@ const submit = ()=>{
 
 }
 
+useEffect(() => {
+    if (!isSuccess) return;
+    closeModal();
+}, [isSuccess]);
+
 return(
     <div className="modal-overlay">
         <div className="modal-body">
             <h2>Cadastre um novo produto</h2>
             <form className="input-container" action="">
 
-                    <Input label="image" value={image} updateValue={setImage}></Input>
-                    <Input label="name" value={name} updateValue={setName}></Input>
+                    <Input label="image url" value={image} updateValue={setImage}></Input>
+                    <Input label="product name" value={name} updateValue={setName}></Input>
                     <Input label="description" value={description} updateValue={setDescription}></Input>
                 
             </form>

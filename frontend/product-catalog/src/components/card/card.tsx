@@ -17,7 +17,7 @@ export function Card({name, description, image}: CardProps){
            <div className="card-body"></div>
             <h2 className="card-title">{name}</h2>
             <p className="card-text"><b>Descrição:</b>{description}</p>
-            <a href="#" className="btn btn-primary">Go somewhere</a>
+            <a href="#" className="btn">Ler mais</a>
         </div>
     )
 
