@@ -19,7 +19,7 @@ const ProductList = () => {
   const fetchProducts = async (page: number = 0, search: string = '') => {
     setIsLoading(true)
     try {
-      const data: ProductPage = await ProductService.getAll(page, 6, search)
+      const data: ProductPage = await ProductService.getAll(page, 2, search)
       setProducts(data.content)
       setTotalPages(data.totalPages)
     } catch (error) {

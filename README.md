@@ -45,13 +45,14 @@ Este projeto consiste em um CRUD completo de produtos, utilizando **Java + Sprin
 product-catalog/
 ├── backend/
 │   ├── src/
-│   ├── pom.xml
-│   └── ...
+│   ├── Dockerfile
+│   └── pom.xml
 ├── frontend/
 │   ├── src/
-│   ├── package.json
-│   └── ...
-├── README.md
+│   ├── Dockerfile
+│   └── package.json
+├── docker-compose.yml
+└── README.md
 ```
 
 ---
@@ -62,43 +63,39 @@ product-catalog/
 - Java 17+
 - Node.js 18+
 - Maven
-- (Opcional) Docker
+- Docker e Docker Compose
 
 ---
 
-### 🔧 Executando o Backend
+### 🔧 Executando com Docker Compose
 
 ```bash
-# Acesse a pasta do backend
-cd backend
+# Na raiz do projeto
+docker-compose up --build
+```
 
-# Compile e execute o projeto Spring Boot
+- O backend será iniciado em: [http://localhost:8080](http://localhost:8080)
+- O frontend será iniciado em: [http://localhost:5173](http://localhost:5173)
+- A documentação Swagger estará em: [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
+
+---
+
+### (Alternativa) Executando Manualmente
+
+#### Backend
+
+```bash
+cd backend
 ./mvnw spring-boot:run
 ```
 
-Após iniciar, o backend estará disponível em:  
-👉 http://localhost:8080
-
-A documentação Swagger estará em:  
-👉 http://localhost:8080/swagger-ui.html
-
----
-
-### 🎨 Executando o Frontend
+#### Frontend
 
 ```bash
-# Acesse a pasta do frontend
 cd frontend
-
-# Instale as dependências
 npm install
-
-# Rode o projeto
 npm run dev
 ```
-
-Após isso, o frontend estará acessível em:  
-👉 http://localhost:5173
 
 ---
 
@@ -150,6 +147,7 @@ Endpoints disponíveis:
 - [x] Paginação
 - [x] Validações básicas
 - [x] Documentação com Swagger
+- [x] Execução com Docker Compose
 
 ---
 
@@ -158,7 +156,7 @@ Endpoints disponíveis:
 Desenvolvido por **Ayrton**  
 🧾 Contato: 
 - 🔗 [LinkedIn](https://www.linkedin.com/in/ayrton-fernandes-de-melo-956a4026b/) 
-- 📩 [Email](ayrtonleonardo14@gmail.com)
+- 📩 [Email](mailto:ayrtonleonardo14@gmail.com)
 
 ---
 
