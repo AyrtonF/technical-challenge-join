@@ -4,28 +4,31 @@ import com.example.product_catalog.domain.dtos.ProductResponseDTO;
 import com.example.product_catalog.domain.models.Product;
 import com.example.product_catalog.repositorys.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.data.domain.Page;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 @Service
 public class GetAllProductsService {
 
     @Autowired
     private ProductRepository productRepository;
+
     @Autowired
     private ProductDTOMapperService dtoMapperService;
 
-    public List<ProductResponseDTO> execute(){
+    public Page<ProductResponseDTO> execute(String search, Pageable pageable) {
+        Page<Product> productsPage;
 
-        return productRepository.findAll().stream().map(product -> {
-            return dtoMapperService.toDTO(product);
-        }).collect(Collectors.toList());
+        if (search == null || search.isBlank()) {
+            productsPage = productRepository.findAll(pageable);
+        } else {
+            productsPage = productRepository.findByNameContainingIgnoreCase(search, pageable);
+        }
 
+        return productsPage.map(dtoMapperService::toDTO);
     }
-
-
 
 }

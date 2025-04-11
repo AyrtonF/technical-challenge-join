@@ -20,7 +20,9 @@ public class ProductDTOMapperService {
                 product.getId(),
                 product.getName(),
                 product.getDescription(),
-                product.getImage());
+                product.getPrice(),
+                product.getQuantity(),
+                product.getImageUrl());
 
     }
 
@@ -30,7 +32,9 @@ public class ProductDTOMapperService {
         Product product = new Product();
         product.setName(productRequestDTO.name());
         product.setDescription(productRequestDTO.description());
-        product.setImage(productRequestDTO.image());
+        product.setPrice(productRequestDTO.price());
+        product.setQuantity(productRequestDTO.quantity());
+        product.setImageUrl(productRequestDTO.imageUrl());
 
         return product;
 

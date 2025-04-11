@@ -1,0 +1,88 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.title {
+  margin: 10px;
+  font-size: 1.75rem;
+  color: #212529;
+}
+
+.addButton {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  background-color: #0d6efd;
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.addButton:hover {
+  background-color: #0b5ed7;
+}
+
+.addIcon {
+  margin-right: 8px;
+}
+
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 0;
+  gap: 16px;
+}
+
+.productGrid{
+  display: grid;
+  justify-content: center;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #0d6efd;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loadingText {
+  font-size: 1.1rem;
+  color: #6c757d;
+}
+
+.emptyMessage {
+  padding: 20px;
+  text-align: center;
+  background-color: #e9ecef;
+  border-radius: 4px;
+  color: #495057;
+}
+
+.productGrid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -12px;
+}
