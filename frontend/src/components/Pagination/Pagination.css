@@ -1,50 +1,104 @@
 .paginationNav {
-    margin-top: 32px;
+  margin-top: 32px;
+}
+
+.pagination {
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pageItem {
+  margin: 0;
+}
+
+.pageLink {
+  position: relative;
+  display: block;
+  padding: 8px 16px;
+  color: #470759;
+  text-decoration: none;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 44px;
+  text-align: center;
+}
+
+.pageLink:hover {
+  z-index: 2;
+  color: #5a0968;
+  background-color: #e9ecef;
+  border-color: #dee2e6;
+}
+
+.pageItem.active .pageLink {
+  z-index: 3;
+  color: #fff;
+  background-color: #470759;
+  border-color: #470759;
+}
+
+.pageItem.disabled .pageLink {
+  color: #6c757d;
+  pointer-events: none;
+  background-color: #fff;
+  border-color: #dee2e6;
+  opacity: 0.6;
+}
+
+/* Responsividade para Pagination */
+
+/* Mobile devices (até 768px) */
+@media (max-width: 767.98px) {
+  .paginationNav {
+    margin-top: 24px;
   }
-  
+
   .pagination {
-    display: flex;
-    padding-left: 0;
-    list-style: none;
-    justify-content: center;
-    gap: 8px;
+    gap: 4px;
+    padding: 0 8px;
   }
-  
-  .pageItem {
-    margin: 0;
-  }
-  
+
   .pageLink {
-    position: relative;
-    display: block;
-    padding: 8px 16px;
-    color: #0d6efd;
-    text-decoration: none;
-    background-color: #fff;
-    border: 1px solid #dee2e6;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.2s;
+    padding: 10px 12px;
+    font-size: 0.9rem;
+    min-width: 40px;
   }
-  
-  .pageLink:hover {
-    z-index: 2;
-    color: #0a58ca;
-    background-color: #e9ecef;
-    border-color: #dee2e6;
+
+  /* Ocultar alguns números de página em mobile para economizar espaço */
+  .pageItem:not(.active):not(.disabled):nth-child(n + 4):nth-last-child(n + 4) {
+    display: none;
   }
-  
-  .pageItem.active .pageLink {
-    z-index: 3;
-    color: #fff;
-    background-color: #0d6efd;
-    border-color: #0d6efd;
+}
+
+/* Tablet devices (768px to 992px) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .pagination {
+    gap: 6px;
   }
-  
-  .pageItem.disabled .pageLink {
-    color: #6c757d;
-    pointer-events: none;
-    background-color: #fff;
-    border-color: #dee2e6;
-    opacity: 0.6;
+
+  .pageLink {
+    padding: 8px 14px;
   }
+}
+
+/* Large devices (992px and up) */
+@media (min-width: 992px) {
+  .paginationNav {
+    margin-top: 40px;
+  }
+
+  .pagination {
+    gap: 10px;
+  }
+
+  .pageLink {
+    padding: 10px 18px;
+  }
+}

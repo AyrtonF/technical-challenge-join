@@ -1,126 +1,191 @@
 .formCard {
-    border: none;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-  
+  border: none;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cardBody {
+  padding: 24px;
+}
+
+.cardTitle {
+  margin-bottom: 24px;
+  font-size: 1.5rem;
+  color: #212529;
+}
+
+.loading {
+  text-align: center;
+  margin: 40px 0;
+  font-size: 1.2rem;
+  color: #6c757d;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-weight: 500;
+  color: #495057;
+}
+
+.input,
+.textarea {
+  padding: 10px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: #470759;
+  outline: 0;
+  box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.25);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 80px;
+  resize: none;
+}
+
+.row {
+  display: flex;
+  gap: 16px;
+}
+
+.col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.cancelButton {
+  padding: 10px 16px;
+  background-color: transparent;
+  border: 1px solid #6c757d;
+  color: #6c757d;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cancelButton:hover {
+  background-color: #6c757d;
+  color: white;
+}
+
+.submitButton {
+  padding: 10px 16px;
+  background-color: #470759;
+  border: 1px solid #470759;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.submitButton:hover {
+  background-color: #5a0968;
+  border-color: #5a0968;
+}
+
+.submitButton:disabled {
+  background-color: #86b7fe;
+  border-color: #86b7fe;
+  cursor: not-allowed;
+}
+
+.error {
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 4px;
+  display: block;
+}
+
+/* Responsividade para ProductForm */
+
+/* Mobile devices (até 768px) */
+@media (max-width: 767.98px) {
   .cardBody {
-    padding: 24px;
-  }
-  
-  .cardTitle {
-    margin-bottom: 24px;
-    font-size: 1.5rem;
-    color: #212529;
-  }
-  
-  .loading {
-    text-align: center;
-    margin: 40px 0;
-    font-size: 1.2rem;
-    color: #6c757d;
-  }
-  
-  .form {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  
-  .formGroup {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  
-  .label {
-    font-weight: 500;
-    color: #495057;
-  }
-  
-  .input,
-  .textarea {
-    padding: 10px 12px;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-    font-size: 1rem;
-    transition: border-color 0.15s, box-shadow 0.15s;
-   
-  }
-  
-  .input:focus,
-  .textarea:focus {
-    border-color: #86b7fe;
-    outline: 0;
-    box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.25);
-  }
-  
-  .textarea {
-    resize: vertical;
-    min-height: 80px;
-    resize: none;
-  }
-  
-  .row {
-    display: flex;
-    gap: 16px;
-  }
-  
-  .col {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  
-  .formActions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 12px;
-    margin-top: 16px;
-  }
-  
-  .cancelButton {
-    padding: 10px 16px;
-    background-color: transparent;
-    border: 1px solid #6c757d;
-    color: #6c757d;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  
-  .cancelButton:hover {
-    background-color: #6c757d;
-    color: white;
-  }
-  
-  .submitButton {
-    padding: 10px 16px;
-    background-color: #0d6efd;
-    border: 1px solid #0d6efd;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  
-  .submitButton:hover {
-    background-color: #0b5ed7;
-    border-color: #0a58ca;
-  }
-  
-  .submitButton:disabled {
-    background-color: #86b7fe;
-    border-color: #86b7fe;
-    cursor: not-allowed;
+    padding: 16px;
   }
 
-  .error {
-    color: #dc3545;
-    font-size: 0.875rem;
-    margin-top: 4px;
-    display: block;
+  .cardTitle {
+    font-size: 1.25rem;
+    margin-bottom: 16px;
   }
-  
+
+  .form {
+    gap: 12px;
+  }
+
+  .row {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .input,
+  .textarea {
+    padding: 12px;
+    font-size: 16px; /* Previne zoom no iOS */
+  }
+
+  .formActions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .cancelButton,
+  .submitButton {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 1rem;
+  }
+}
+
+/* Tablet devices (768px to 992px) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .cardBody {
+    padding: 20px;
+  }
+
+  .formActions {
+    gap: 10px;
+  }
+}
+
+/* Large devices (992px and up) */
+@media (min-width: 992px) {
+  .cardBody {
+    padding: 32px;
+  }
+
+  .form {
+    gap: 20px;
+  }
+
+  .row {
+    gap: 20px;
+  }
+}

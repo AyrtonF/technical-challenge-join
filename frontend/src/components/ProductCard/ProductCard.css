@@ -1,123 +1,273 @@
 .cardContainer {
-  width: 400px;
-  height: 400px;
-    padding: 0 12px;
-    margin-bottom: 24px;
-  }
-  
-  .card {
-    height: 100%;
-    border: none;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  }
-  
-  .cardImageContainer {
-    background-color: #f8f9fa;
-    text-align: center;
-    padding: 16px;
-    flex: 0 0 auto;
-  }
-  
-  .cardImage {
-    max-height: 150px;
-    width: auto;
+  width: 100%;
+  max-width: 400px;
+  min-width: 280px;
+  padding: 0 var(--grid-gap-sm, 0.5rem);
+  margin-bottom: 1.5rem;
+}
+
+.card {
+  height: 100%;
+  min-height: 350px;
+  border: none;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.cardImageContainer {
+  background-color: var(--light);
+  text-align: center;
+  padding: 1rem;
+  flex: 0 0 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardImage {
+  max-height: 150px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.noImage {
+  color: #6c757d;
+}
+
+.cardBody {
+  padding: 16px;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardTitle {
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+  color: #212529;
+  text-overflow: ellipsis;
+}
+
+.cardText {
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+  flex: 1;
+  text-overflow: ellipsis;
+}
+
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.priceBadge {
+  background-color: #470759;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.actionButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.actionButton:hover {
+  transform: scale(1.1);
+}
+
+.actionButton svg {
+  font-size: 18px;
+}
+
+.editButton {
+  border-color: #6c757d;
+  color: #6c757d;
+}
+
+.editButton:hover {
+  background-color: #6c757d;
+  color: white;
+}
+
+.deleteButton {
+  border-color: #dc3545;
+  color: #dc3545;
+}
+
+.deleteButton:hover {
+  background-color: #dc3545;
+  color: white;
+}
+
+/* Responsividade para ProductCard */
+
+/* Mobile devices (até 576px) */
+@media (max-width: 575.98px) {
+  .cardContainer {
     max-width: 100%;
-    object-fit: contain;
-  }
-  
-  .noImage {
-    color: #6c757d;
-  }
-  
-  .cardBody {
-    padding: 16px;
-    flex: 1 1 auto;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .cardTitle {
-    margin-bottom: 8px;
-    font-size: 1.1rem;
-    color: #212529;
-    text-overflow: ellipsis;
-  }
-  
-  .cardText {
-    color: #6c757d;
-    font-size: 0.9rem;
-    margin-bottom: 16px;
-    flex: 1;
-    text-overflow: ellipsis;
-  }
-  
-  .cardFooter {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .priceBadge {
-    background-color: #0d6efd;
-    color: white;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 500;
-  }
-  
-  .actions {
-    display: flex;
-    gap: 8px;
-  }
-  
-  .actionButton {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    border: 1px solid transparent;
-    background-color: transparent;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  
-  .actionButton:hover {
-    transform: scale(1.1);
-  }
-  
-  .actionButton svg {
-    font-size: 18px;
+    min-width: 250px;
+    padding: 0 var(--grid-gap-sm, 0.5rem);
+    margin-bottom: 1rem;
   }
 
-  .editButton {
-    border-color: #6c757d;
-    color: #6c757d;
+  .card {
+    min-height: 320px;
   }
-  
-  .editButton:hover {
-    background-color: #6c757d;
-    color: white;
+
+  .cardImageContainer {
+    flex: 0 0 140px;
+    padding: 0.75rem;
   }
-  
-  .deleteButton {
-    border-color: #dc3545;
-    color: #dc3545;
+
+  .cardImage {
+    max-height: 120px;
   }
-  
-  .deleteButton:hover {
-    background-color: #dc3545;
-    color: white;
+
+  .cardBody {
+    padding: 1rem;
   }
+
+  .cardTitle {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .cardText {
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+
+  .priceBadge {
+    font-size: 0.8rem;
+    padding: 4px 8px;
+  }
+
+  .actions {
+    gap: 6px;
+  }
+
+  .actionButton {
+    width: 28px;
+    height: 28px;
+  }
+
+  .actionButton svg {
+    font-size: 14px;
+  }
+}
+
+/* Tablet devices (576px to 768px) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .cardContainer {
+    max-width: 350px;
+    min-width: 280px;
+  }
+
+  .card {
+    min-height: 340px;
+  }
+
+  .cardImageContainer {
+    flex: 0 0 160px;
+  }
+
+  .cardImage {
+    max-height: 140px;
+  }
+}
+
+/* Small desktop and large tablets (768px to 992px) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .cardContainer {
+    max-width: 320px;
+    min-width: 280px;
+  }
+
+  .card {
+    min-height: 360px;
+  }
+
+  .cardImageContainer {
+    flex: 0 0 170px;
+  }
+
+  .cardImage {
+    max-height: 150px;
+  }
+}
+
+/* Large devices (992px and up) */
+@media (min-width: 992px) {
+  .cardContainer {
+    max-width: 380px;
+    min-width: 300px;
+    padding: 0 var(--grid-gap, 1rem);
+  }
+
+  .card {
+    min-height: 380px;
+  }
+
+  .cardImageContainer {
+    flex: 0 0 180px;
+    padding: 1.25rem;
+  }
+
+  .cardImage {
+    max-height: 160px;
+  }
+
+  .cardBody {
+    padding: 1.25rem;
+  }
+}
+
+/* Extra large devices (1200px and up) */
+@media (min-width: 1200px) {
+  .cardContainer {
+    max-width: 400px;
+    padding: 0 var(--grid-gap-lg, 1.5rem);
+  }
+
+  .card {
+    min-height: 400px;
+  }
+
+  .cardImageContainer {
+    flex: 0 0 200px;
+    padding: 1.5rem;
+  }
+
+  .cardImage {
+    max-height: 170px;
+  }
+}

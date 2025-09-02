@@ -29,7 +29,7 @@ public class Product {
 
     public void update(ProductUpdateDTO productUpdateDTO){
 
-        if (productUpdateDTO.name() != null  && !Objects.equals(productUpdateDTO.name(), this.description)){
+        if (productUpdateDTO.name() != null  && !Objects.equals(productUpdateDTO.name(), this.name)){
             this.name = productUpdateDTO.name();
         }
 

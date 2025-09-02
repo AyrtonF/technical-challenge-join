@@ -1,43 +1,89 @@
 .searchForm {
-    margin-bottom: 24px;
+  margin-bottom: 24px;
+}
+
+.searchGroup {
+  display: flex;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.searchInput {
+  flex: 1;
+  padding: 10px 16px;
+  border: 1px solid #ced4da;
+  border-radius: 4px 0 0 4px;
+  font-size: 1rem;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.searchInput:focus {
+  border-color: #470759;
+  outline: 0;
+  box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.25);
+}
+
+.searchButton {
+  padding: 10px 16px;
+  background-color: #470759;
+  border: 1px solid #470759;
+  color: white;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.searchButton:hover {
+  background-color: #5a0968;
+}
+
+.searchIcon {
+  font-size: 1rem;
+}
+
+/* Responsividade para SearchBar */
+
+/* Mobile devices (até 768px) */
+@media (max-width: 767.98px) {
+  .searchForm {
+    margin-bottom: 16px;
   }
-  
+
   .searchGroup {
-    display: flex;
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
+    max-width: 100%;
+    margin: 0;
   }
-  
+
   .searchInput {
-    flex: 1;
-    padding: 10px 16px;
-    border: 1px solid #ced4da;
-    border-radius: 4px 0 0 4px;
-    font-size: 1rem;
-    transition: border-color 0.15s, box-shadow 0.15s;
+    padding: 12px 16px;
+    font-size: 16px; /* Previne zoom no iOS */
   }
-  
-  .searchInput:focus {
-    border-color: #86b7fe;
-    outline: 0;
-    box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.25);
-  }
-  
+
   .searchButton {
-    padding: 10px 16px;
-    background-color: #0d6efd;
-    border: 1px solid #0d6efd;
-    color: white;
-    border-radius: 0 4px 4px 0;
-    cursor: pointer;
-    transition: background-color 0.2s;
+    padding: 12px 16px;
+    min-width: 60px;
   }
-  
-  .searchButton:hover {
-    background-color: #0b5ed7;
-  }
-  
+
   .searchIcon {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
+}
+
+/* Tablet devices (768px to 992px) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .searchGroup {
+    max-width: 400px;
+  }
+}
+
+/* Large devices (992px and up) */
+@media (min-width: 992px) {
+  .searchForm {
+    margin-bottom: 32px;
+  }
+
+  .searchGroup {
+    max-width: 600px;
+  }
+}
