@@ -1,5 +1,6 @@
 package com.example.product_catalog.domain.dtos;
 
+import jakarta.persistence.Column;
 import jakarta.validation.constraints.*;
 
 import java.math.BigDecimal;
@@ -14,5 +15,6 @@ public record ProductRequestDTO(
         BigDecimal price,
         @Min(value = 0, message = "Quantidade não pode ser negativa")
         int quantity,
+        @Column(columnDefinition = "TEXT")
         String imageUrl) {
 }
