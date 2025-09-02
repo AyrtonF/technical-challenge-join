@@ -24,7 +24,7 @@ public class Product {
     @Column(nullable = false)
     private Integer quantity;
 
-    @Column(name = "image_url")
+    @Column(name = "image_url", columnDefinition = "TEXT")
     private String imageUrl;
 
     public void update(ProductUpdateDTO productUpdateDTO){

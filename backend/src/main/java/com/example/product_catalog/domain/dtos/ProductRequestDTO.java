@@ -15,6 +15,5 @@ public record ProductRequestDTO(
         BigDecimal price,
         @Min(value = 0, message = "Quantidade não pode ser negativa")
         int quantity,
-        @Column(columnDefinition = "TEXT")
         String imageUrl) {
 }
