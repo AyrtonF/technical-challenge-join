@@ -13,16 +13,14 @@ public class UpdateProductService {
 
     @Autowired
     private ProductRepository productRepository;
+
     @Autowired
     private ProductDTOMapperService dtoMapperService;
 
     public ProductResponseDTO execute(ProductUpdateDTO productUpdateDTO, Long id) {
-
         Product product = productRepository.findById(id)
                 .orElseThrow(() -> new ProductNotFoundException(id));
         product.update(productUpdateDTO);
-        return dtoMapperService.toDTO(this.productRepository.save(product));
-
+        return dtoMapperService.toDTO(productRepository.save(product));
     }
-
 }

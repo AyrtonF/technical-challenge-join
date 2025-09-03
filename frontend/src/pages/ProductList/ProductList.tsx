@@ -1,58 +1,53 @@
-import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import ProductCard from '../../components/ProductCard/ProductCard'
-import SearchBar from '../../components/Search/SearchBar'
-import Pagination from '../../components/Pagination/Pagination'
-import ProductService from '../../services/productService'
-import { FaPlus } from 'react-icons/fa'
-import { toast } from 'react-toastify'
-import { Product, ProductPage } from '../../types/product'
-import "./ProductList.css"
+import { useState, useEffect } from "react";
+import ProductCard from "../../components/ProductCard/ProductCard";
+import SearchBar from "../../components/Search/SearchBar";
+import Pagination from "../../components/Pagination/Pagination";
+import ProductService from "../../services/productService";
+import { toast } from "react-toastify";
+import { Product, ProductPage } from "../../types/product";
+import "./ProductList.css";
 
 const ProductList = () => {
-  const [products, setProducts] = useState<Product[]>([])
-  const [currentPage, setCurrentPage] = useState(0)
-  const [totalPages, setTotalPages] = useState(1)
-  const [searchTerm, setSearchTerm] = useState('')
-  const [isLoading, setIsLoading] = useState(false)
+  const [products, setProducts] = useState<Product[]>([]);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [totalPages, setTotalPages] = useState(1);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
-  const fetchProducts = async (page: number = 0, search: string = '') => {
-    setIsLoading(true)
+  const fetchProducts = async (page: number = 0, search: string = "") => {
+    setIsLoading(true);
     try {
-      const data: ProductPage = await ProductService.getAll(page, 2, search)
-      setProducts(data.content)
-      setTotalPages(data.totalPages)
-    } catch (error) {
-      toast.error('Erro ao carregar os produtos')
+      const data: ProductPage = await ProductService.getAll(page, 2, search);
+      setProducts(data.content);
+      setTotalPages(data.totalPages);
+    } catch {
+      toast.error("Erro ao carregar os produtos");
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
-  }
+  };
 
   useEffect(() => {
-    fetchProducts(currentPage, searchTerm)
-  }, [currentPage, searchTerm])
+    fetchProducts(currentPage, searchTerm);
+  }, [currentPage, searchTerm]);
 
   const handleSearch = (term: string) => {
-    setSearchTerm(term)
-    setCurrentPage(0)
-  }
+    setSearchTerm(term);
+    setCurrentPage(0);
+  };
 
   const handlePageChange = (page: number) => {
-    setCurrentPage(page)
-  }
+    setCurrentPage(page);
+  };
 
   const handleDelete = (id: string) => {
-    setProducts(products.filter((product) => product.id !== id))
-  }
+    setProducts(products.filter((product) => product.id !== id));
+  };
 
   return (
     <div className="container">
       <div className="header">
         <h2 className="title">Lista de Produtos</h2>
-        <Link to="/products/add" className="addButton">
-          <FaPlus className="addIcon" /> Adicionar Produto
-        </Link>
       </div>
 
       <SearchBar onSearch={handleSearch} />
@@ -87,7 +82,7 @@ const ProductList = () => {
         </>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default ProductList
+export default ProductList;

@@ -1,6 +1,5 @@
 package com.example.product_catalog.services;
 
-
 import com.example.product_catalog.domain.dtos.ProductRequestDTO;
 import com.example.product_catalog.domain.dtos.ProductResponseDTO;
 import com.example.product_catalog.domain.models.Product;
@@ -13,15 +12,12 @@ public class CreateProductService {
 
     @Autowired
     private ProductRepository productRepository;
+
     @Autowired
     private ProductDTOMapperService dtoMapperService;
 
-
-    public ProductResponseDTO execute(ProductRequestDTO productRequestDTO){
-
+    public ProductResponseDTO execute(ProductRequestDTO productRequestDTO) {
         Product product = dtoMapperService.toEntity(productRequestDTO);
         return dtoMapperService.toDTO(productRepository.save(product));
-
     }
-
 }

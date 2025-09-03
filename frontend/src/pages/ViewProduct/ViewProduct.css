@@ -3,6 +3,9 @@
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .cardBody {
@@ -100,34 +103,54 @@
   overflow-wrap: break-word;
 }
 
-.detailItem {
-  margin-bottom: 16px;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
+.outOfStockBadge {
+  background-color: #dc3545;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+  margin: 16px 0;
+  display: inline-block;
 }
 
-.detailLabel {
-  margin: 0;
+.productInfo {
+  margin-top: 24px;
+}
+
+.infoRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.infoRow:last-child {
+  border-bottom: none;
+}
+
+.infoLabel {
   font-size: 1rem;
   color: #495057;
-  min-width: fit-content;
+  font-weight: 500;
 }
 
 .price {
   background-color: #470759;
   color: white;
-  padding: 6px 12px;
+  padding: 8px 16px;
   border-radius: 20px;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 1.1rem;
 }
 
 .quantity {
-  background-color: #6c757d;
+  background-color: #28a745;
   color: white;
   padding: 6px 12px;
-  border-radius: 20px;
+  border-radius: 15px;
   font-weight: 500;
 }
 

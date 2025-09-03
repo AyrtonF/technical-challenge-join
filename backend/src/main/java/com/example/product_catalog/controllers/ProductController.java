@@ -15,8 +15,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.data.domain.Pageable;
 
-
-
 @RestController
 @RequestMapping("/products")
 @Tag(name = "Produtos", description = "Operações relacionadas à gestão de produtos")
@@ -24,12 +22,16 @@ public class ProductController {
 
     @Autowired
     private CreateProductService createProductService;
+
     @Autowired
     private GetAllProductsService getAllProductsService;
+
     @Autowired
     private GetProductByIdService getProductByIdService;
+
     @Autowired
     private UpdateProductService updateProductService;
+
     @Autowired
     private DeleteProductByIdService deleteProductByIdService;
 
@@ -39,7 +41,7 @@ public class ProductController {
             @ApiResponse(responseCode = "400", description = "Dados inválidos fornecidos")
     })
     @PostMapping
-    public ResponseEntity<ProductResponseDTO> create(@RequestBody ProductRequestDTO productRequestDTO){
+    public ResponseEntity<ProductResponseDTO> create(@RequestBody ProductRequestDTO productRequestDTO) {
         return ResponseEntity.status(HttpStatus.CREATED).body(createProductService.execute(productRequestDTO));
     }
 
@@ -48,8 +50,10 @@ public class ProductController {
             @ApiResponse(responseCode = "200", description = "Lista de produtos retornada com sucesso")
     })
     @GetMapping
-    public ResponseEntity<Page<ProductResponseDTO>> getAll(@RequestParam(required = false, defaultValue = "") String search, Pageable pageable) {
-        Page<ProductResponseDTO> productsPage = getAllProductsService.execute(search,pageable);
+    public ResponseEntity<Page<ProductResponseDTO>> getAll(
+            @RequestParam(required = false, defaultValue = "") String search,
+            Pageable pageable) {
+        Page<ProductResponseDTO> productsPage = getAllProductsService.execute(search, pageable);
         return ResponseEntity.ok(productsPage);
     }
 
@@ -59,8 +63,8 @@ public class ProductController {
             @ApiResponse(responseCode = "404", description = "Produto não encontrado")
     })
     @GetMapping("/{id}")
-    public ResponseEntity<ProductResponseDTO> getById(@PathVariable("id") Long id){
-        return ResponseEntity.status(HttpStatus.OK).body(getProductByIdService.execute(id));
+    public ResponseEntity<ProductResponseDTO> getById(@PathVariable("id") Long id) {
+        return ResponseEntity.ok(getProductByIdService.execute(id));
     }
 
     @Operation(summary = "Atualizar um produto existente")
@@ -69,8 +73,10 @@ public class ProductController {
             @ApiResponse(responseCode = "404", description = "Produto não encontrado")
     })
     @PutMapping("/{id}")
-    public ResponseEntity<ProductResponseDTO> update(@RequestBody ProductUpdateDTO productUpdateDTO, @PathVariable("id") Long id){
-        return ResponseEntity.status(HttpStatus.OK).body(updateProductService.execute(productUpdateDTO, id));
+    public ResponseEntity<ProductResponseDTO> update(
+            @RequestBody ProductUpdateDTO productUpdateDTO,
+            @PathVariable("id") Long id) {
+        return ResponseEntity.ok(updateProductService.execute(productUpdateDTO, id));
     }
 
     @Operation(summary = "Excluir um produto pelo ID")
@@ -79,8 +85,8 @@ public class ProductController {
             @ApiResponse(responseCode = "404", description = "Produto não encontrado")
     })
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteById(@PathVariable("id") Long id){
+    public ResponseEntity<Void> deleteById(@PathVariable("id") Long id) {
         deleteProductByIdService.execute(id);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        return ResponseEntity.noContent().build();
     }
 }

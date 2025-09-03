@@ -12,12 +12,9 @@ public class DeleteProductByIdService {
     private ProductRepository productRepository;
 
     public void execute(Long id) {
-
         if (!productRepository.existsById(id)) {
             throw new ProductNotFoundException(id);
         }
-        this.productRepository.deleteById(id);
-
+        productRepository.deleteById(id);
     }
-
 }

@@ -20,11 +20,12 @@
 .brand {
   color: white;
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: bold;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  letter-spacing: -0.5px;
 }
 
 .navbarNav {
@@ -72,6 +73,7 @@
   font-size: 1.5rem;
   cursor: pointer;
   padding: 0.5rem;
+  margin-left: auto;
 }
 
 /* Responsividade para Navigation */

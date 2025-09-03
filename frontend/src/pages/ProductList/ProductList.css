@@ -2,16 +2,18 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 100vw;
+  max-width: 1400px;
   padding: var(--container-padding);
   margin: 0 auto;
   overflow-x: hidden;
+  align-items: center;
+  justify-content: center;
 }
 
 .header {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin-bottom: 1.5rem;
   gap: 1rem;
@@ -22,26 +24,6 @@
   font-size: clamp(1.5rem, 4vw, 2rem);
   color: var(--dark);
   text-align: center;
-}
-
-.addButton {
-  display: flex;
-  align-items: center;
-  padding: 8px 16px;
-  background-color: #470759;
-  color: white;
-  border-radius: 4px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: background-color 0.2s;
-}
-
-.addButton:hover {
-  background-color: #5a0968;
-}
-
-.addIcon {
-  margin-right: 8px;
 }
 
 .loadingContainer {
@@ -88,12 +70,15 @@
 
 .productGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: var(--grid-gap);
+  grid-template-columns: repeat(auto-fit, minmax(320px, 400px));
+  gap: 32px;
   width: 100%;
+  justify-content: center;
   justify-items: center;
-  margin: 0;
+  place-items: center;
+  margin: 0 auto;
   padding: 0;
+  max-width: 1200px;
 }
 
 /* Responsividade para ProductList */

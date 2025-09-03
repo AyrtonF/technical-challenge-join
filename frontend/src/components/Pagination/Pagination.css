@@ -44,12 +44,14 @@
   border-color: #470759;
 }
 
-.pageItem.disabled .pageLink {
+.pageItem.disabled .pageLink,
+.pageLink:disabled {
   color: #6c757d;
   pointer-events: none;
   background-color: #fff;
   border-color: #dee2e6;
   opacity: 0.6;
+  cursor: not-allowed;
 }
 
 /* Responsividade para Pagination */

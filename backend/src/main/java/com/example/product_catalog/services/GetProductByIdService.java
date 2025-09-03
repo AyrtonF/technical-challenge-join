@@ -8,8 +8,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class GetProductByIdService {
+
     @Autowired
     private ProductRepository productRepository;
+
     @Autowired
     private ProductDTOMapperService dtoMapperService;
 
@@ -17,5 +19,4 @@ public class GetProductByIdService {
         return dtoMapperService.toDTO(productRepository.findById(id)
                 .orElseThrow(() -> new ProductNotFoundException(id)));
     }
-
 }

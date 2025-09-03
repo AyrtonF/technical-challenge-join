@@ -5,10 +5,8 @@ import com.example.product_catalog.domain.models.Product;
 import com.example.product_catalog.repositorys.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
 @Service
 public class GetAllProductsService {
@@ -30,5 +28,4 @@ public class GetAllProductsService {
 
         return productsPage.map(dtoMapperService::toDTO);
     }
-
 }
