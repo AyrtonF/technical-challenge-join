@@ -106,7 +106,7 @@ npm run dev
 ./mvnw test
 ```
 
-Incluí um teste unitário básico utilizando JUnit e Mockito, validando a lógica de criação de produto.
+Incluí um teste unitário utilizando JUnit e Mockito, para as camadas de service e controller, validando a lógica de criação de produto.
 
 ---
 
